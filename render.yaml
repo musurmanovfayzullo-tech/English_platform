@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: english-speaking-platform
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        generateValue: false
+      - key: APP_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: APP_NAME
+        value: Level Up English
+      - key: COURSE_PRICE
+        value: "199000"
+      - key: TELEGRAM_USERNAME
+        sync: false
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: english-speaking-db
+          property: connectionString
+
+databases:
+  - name: english-speaking-db
+    databaseName: english_platform
+    plan: free
+    region: frankfurt

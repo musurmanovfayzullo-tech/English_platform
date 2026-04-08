@@ -1,0 +1,29 @@
+DEPLOY NOTES
+
+1. Install dependencies
+   npm install
+
+2. Recommended production setup
+   - Set NODE_ENV=production
+   - Set APP_URL to your real HTTPS domain
+   - Set DATABASE_URL to PostgreSQL
+   - Set SESSION_SECRET to a long random value
+   - Set ADMIN_USERNAME and ADMIN_PASSWORD_HASH
+   - Optionally set ADMIN_TOTP_SECRET
+
+3. Generate admin password hash
+   node -e "require('bcryptjs').hash('YourStrongPassword123',12).then(console.log)"
+
+4. PostgreSQL tables
+   Tables are auto-created at startup:
+   - app_kv_store
+   - app_sessions
+
+5. Payment flow
+   - User finishes Lesson 1
+   - User opens payment modal and submits transaction ID
+   - Admin reviews in /admin and approves/rejects
+   - After payment approval, admin can approve access and user enters code
+
+6. Run tests
+   npm test

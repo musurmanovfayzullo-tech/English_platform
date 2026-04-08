@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level Up English</title>
+    <meta
+      name="description"
+      content="Premium spoken English platform for Uzbek beginners. Learn real-life English for shops, taxis, cafés, airports, help requests, and simple job interviews."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-loader" id="pageLoader">Loading...</div>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+
+      <header class="site-header container">
+        <a class="brand" href="#top">
+          <span class="brand-mark">LU</span>
+          <span>
+            <strong id="brandName">Level Up English</strong>
+            <small>Real-life spoken English</small>
+          </span>
+        </a>
+
+        <nav class="header-actions">
+          <button id="openAuthBtn" class="btn btn-ghost">Login / Register</button>
+          <button id="openDashboardBtn" class="btn btn-primary hidden">Dashboard</button>
+          <button id="logoutBtn" class="btn btn-ghost hidden">Logout</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="heroSection" class="hero container">
+          <div class="hero-copy glass-card">
+            <span class="eyebrow">Premium beginner platform</span>
+            <h1>Speak English for real life — not just textbooks.</h1>
+            <p>
+              Designed for Uzbek beginners who want to survive and speak confidently
+              in cafés, shops, taxis, airports, hotels, and simple job interviews.
+            </p>
+
+            <div class="hero-cta-row">
+              <button class="btn btn-primary btn-lg" data-open-auth>
+                Start Lesson 1 Free
+              </button>
+              <a class="btn btn-ghost btn-lg" href="#howItWorks">See how it works</a>
+            </div>
+
+            <div class="hero-stats">
+              <article>
+                <strong>30</strong>
+                <span>Spoken lessons</span>
+              </article>
+              <article>
+                <strong>80%</strong>
+                <span>Pass requirement</span>
+              </article>
+              <article>
+                <strong>Mobile</strong>
+                <span>Audio-friendly</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="lesson-preview glass-card floating-card">
+              <span class="preview-pill">Lesson 1 Free</span>
+              <h3>Hello & Introduce Yourself</h3>
+              <ul>
+                <li>Vocabulary with audio</li>
+                <li>Mini dialogues</li>
+                <li>Speaking practice</li>
+                <li>Exercises + test + feedback</li>
+              </ul>
+            </div>
+
+            <div class="glass-card progress-preview">
+              <span class="mini-label">Smooth journey</span>
+              <div class="progress-line"><span></span></div>
+              <div class="flow-mini">
+                <span>Lesson 1</span>
+                <span>Payment</span>
+                <span>Access Code</span>
+                <span>Full Course</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features container">
+          <article class="glass-card feature-card">
+            <h3>Real-life spoken English</h3>
+            <p>
+              Daily situations for cafés, transport, shopping, hotels, airports,
+              and work basics.
+            </p>
+          </article>
+
+          <article class="glass-card feature-card">
+            <h3>Beginner-first learning</h3>
+            <p>
+              Simple structure, Uzbek support, motivating lessons, and clear
+              pass/fail guidance.
+            </p>
+          </article>
+
+          <article class="glass-card feature-card">
+            <h3>Commercial-quality UX</h3>
+            <p>
+              Premium responsive design, smooth interactions, progress tracking,
+              and restore-after-refresh flow.
+            </p>
+          </article>
+        </section>
+
+        <section id="howItWorks" class="journey container">
+          <div class="section-heading">
+            <span class="eyebrow">How it works</span>
+            <h2>Simple path from free trial to full access</h2>
+          </div>
+
+          <div class="journey-grid">
+            <article class="glass-card journey-step">
+              <strong>1</strong>
+              <p>Register your account.</p>
+            </article>
+
+            <article class="glass-card journey-step">
+              <strong>2</strong>
+              <p>Complete Lesson 1 for free.</p>
+            </article>
+
+            <article class="glass-card journey-step">
+              <strong>3</strong>
+              <p>Payment modal opens with Telegram contact.</p>
+            </article>
+
+            <article class="glass-card journey-step">
+              <strong>4</strong>
+              <p>Admin verifies payment and sends access code manually.</p>
+            </article>
+
+            <article class="glass-card journey-step">
+              <strong>5</strong>
+              <p>Enter the code and unlock the rest of the course.</p>
+            </article>
+          </div>
+        </section>
+
+
+        <section class="social-proof container">
+          <article class="glass-card proof-card">
+            <span class="eyebrow">Why learners trust this course</span>
+            <h2>Built for real Uzbek beginners</h2>
+            <div class="proof-grid">
+              <div><strong>Simple path</strong><p>One lesson at a time with clear pass rules.</p></div>
+              <div><strong>Telegram support</strong><p>Fast payment and approval communication.</p></div>
+              <div><strong>Progress memory</strong><p>Your dashboard restores your latest progress.</p></div>
+            </div>
+          </article>
+          <article class="glass-card faq-card">
+            <span class="eyebrow">FAQ</span>
+            <details open><summary>When do I unlock the full course?</summary><p>After Lesson 1, your payment is checked by admin, then your access code is approved.</p></details>
+            <details><summary>Can I continue where I stopped?</summary><p>Yes. The dashboard remembers your lesson progress and restores your last opened lesson on this device.</p></details>
+            <details><summary>Do I need to pass every lesson?</summary><p>Yes. You need at least 80% to unlock the next lesson.</p></details>
+          </article>
+        </section>
+
+        <section id="dashboardSection" class="dashboard container hidden">
+          <div class="dashboard-top">
+            <div class="dashboard-intro glass-card">
+              <div>
+                <span class="eyebrow">Your learning dashboard</span>
+                <h2 id="dashboardTitle">Welcome back</h2>
+                <p id="dashboardSubtitle">Continue your spoken English journey.</p>
+              </div>
+              <button id="unlockAccessBtn" class="btn btn-primary">
+                Enter Access Code
+              </button>
+            </div>
+
+            <div class="dashboard-summary-grid">
+              <article class="glass-card summary-card">
+                <span class="mini-label">Completed</span>
+                <strong id="summaryCompleted">0 / 30</strong>
+              </article>
+
+              <article class="glass-card summary-card">
+                <span class="mini-label">Course Progress</span>
+                <strong id="summaryPercent">0%</strong>
+              </article>
+
+              <article class="glass-card summary-card">
+                <span class="mini-label">Access</span>
+                <strong id="summaryAccess">Free only</strong>
+              </article>
+            </div>
+          </div>
+
+          <div id="upgradeBanner" class="glass-card upgrade-banner hidden">
+            <div>
+              <span class="eyebrow">Unlock full course</span>
+              <h3>You finished Lesson 1. Continue to all 30 lessons.</h3>
+              <p>
+                Pay via Telegram, send your proof, then enter your access code here.
+              </p>
+            </div>
+
+            <div class="upgrade-actions">
+              <button class="btn btn-primary" id="bannerOpenPaymentBtn">
+                Open Payment Flow
+              </button>
+              <button class="btn btn-ghost" id="bannerOpenCodeBtn">
+                Enter Code
+              </button>
+            </div>
+          </div>
+
+          <section class="lessons-panel glass-card">
+            <div class="section-heading compact-heading">
+              <div>
+                <span class="eyebrow">Course lessons</span>
+                <h2>30-step spoken English roadmap</h2>
+              </div>
+            </div>
+
+            <div id="lessonsGrid" class="lessons-grid"></div>
+          </section>
+
+          <section id="lessonView" class="lesson-view hidden"></section>
+        </section>
+      </main>
+    </div>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="authModal"></div>
+
+      <div class="modal-panel glass-card auth-panel">
+        <button class="modal-close" data-close-modal="authModal">×</button>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth-tab="register">Register</button>
+          <button class="auth-tab" data-auth-tab="login">Login</button>
+        </div>
+
+        <form id="registerForm" class="auth-form">
+          <h3>Create your account</h3>
+
+          <label>
+            <span>Full name</span>
+            <input
+              name="fullName"
+              type="text"
+              placeholder="Fayzullo Musurmanov"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Phone number (optional)</span>
+            <input
+              name="phone"
+              type="tel"
+              placeholder="+998 90 123 45 67"
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input
+              name="password"
+              type="password"
+              placeholder="At least 8 characters with upper/lowercase and a number"
+              minlength="8"
+              required
+            />
+          </label>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            Register & Start
+          </button>
+        </form>
+
+        <form id="loginForm" class="auth-form hidden">
+          <h3>Welcome back</h3>
+
+          <label>
+            <span>Email</span>
+            <input
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input
+              name="password"
+              type="password"
+              placeholder="Your password"
+              required
+            />
+          </label>
+
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="paymentModal"></div>
+
+      <div class="modal-panel glass-card payment-panel">
+        <button class="modal-close" data-close-modal="paymentModal">×</button>
+
+        <span class="eyebrow">Unlock premium access</span>
+        <h3>Submit your payment for review</h3>
+
+        <ol class="flow-list">
+          <li>Pay the course price.</li>
+          <li>Enter your transaction ID below.</li>
+          <li>Admin reviews your payment request.</li>
+          <li>After approval, enter your access code to unlock Lessons 2–30.</li>
+        </ol>
+
+        <div class="price-box">
+          <span>Course price</span>
+          <strong id="coursePrice">29 000 UZS</strong>
+        </div>
+
+        
+
+        <form id="paymentRequestForm" class="stack-sm" style="margin:16px 0;">
+          <label>
+            <span>Transaction ID / Receipt number</span>
+            <input name="transactionId" type="text" placeholder="Masalan: PAY-123456" required />
+          </label>
+          <label>
+            <span>Paid amount</span>
+            <input name="amount" type="text" placeholder="29000" />
+          </label>
+          <label>
+            <span>Optional note</span>
+            <textarea name="note" rows="3" placeholder="Telegram username, payment time, yoki qisqa izoh"></textarea>
+          </label>
+          <button class="btn btn-primary btn-block" type="submit">Send Payment Request</button>
+        </form>
+
+        <div class="modal-actions vertical-mobile">
+          <a
+            id="telegramPayLink"
+            class="btn btn-primary"
+            href="https://t.me/levelupfayzullo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Telegram
+          </a>
+
+          <button class="btn btn-ghost" id="fromPaymentOpenCodeBtn">
+            I already have a code
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CODE MODAL -->
+    <div id="codeModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="codeModal"></div>
+
+      <div class="modal-panel glass-card code-panel">
+        <button class="modal-close" data-close-modal="codeModal">×</button>
+
+        <span class="eyebrow">Manual access unlock</span>
+        <h3>Enter your access code</h3>
+        <p>
+          Use the code sent by the admin after payment verification. If you do not
+          have a code yet, tap the Telegram button below and write to admin directly.
+        </p>
+
+        <div class="modal-actions vertical-mobile" style="margin-bottom: 16px;">
+          <a
+            id="telegramCodeLink"
+            class="btn btn-ghost btn-block"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Get Code via Telegram
+          </a>
+        </div>
+
+        <form id="codeForm" class="stack-sm">
+          <label>
+            <span>Access code</span>
+            <input
+              id="accessCodeInput"
+              name="code"
+              type="text"
+              placeholder="Telegramdan olgan kodingiz!"
+              required
+            />
+          </label>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            Unlock Course
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

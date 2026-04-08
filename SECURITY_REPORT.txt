@@ -1,0 +1,17 @@
+LEVELUP SECURITY + PLATFORM UPGRADE REPORT
+
+Completed in this version:
+- Database-ready storage added. If DATABASE_URL is configured, app data is stored in PostgreSQL instead of JSON files.
+- Database-backed session store added for PostgreSQL deployments.
+- Admin authentication upgraded to support ADMIN_USERNAME + ADMIN_PASSWORD_HASH, with optional TOTP.
+- Payment request workflow added:
+  - student submits transaction ID
+  - admin reviews pending payment requests
+  - approve/reject endpoints update user payment state
+- Basic automated tests added with node:test.
+- Existing protections preserved: CSRF, origin checks, strict cookies, password policy, rate limits, session regeneration.
+
+Important honesty note:
+- No application can be guaranteed 100% secure.
+- For strongest production security, deploy behind HTTPS, rotate secrets, keep dependencies updated, and run external security review + penetration testing.
+- PostgreSQL mode is now the recommended production path. JSON fallback remains for local development only.

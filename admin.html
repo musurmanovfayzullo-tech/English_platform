@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level Up English Admin</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .admin-page {
+        min-height: 100vh;
+        padding: 32px 16px 60px;
+        background:
+          radial-gradient(circle at top left, rgba(99, 102, 241, 0.18), transparent 30%),
+          radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 28%),
+          linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      }
+
+      .admin-wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .admin-hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .admin-hero h1 {
+        margin: 8px 0 0;
+        color: #fff;
+        font-size: clamp(28px, 4vw, 42px);
+      }
+
+      .admin-subtitle {
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 10px;
+        max-width: 760px;
+      }
+
+      .admin-top-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .admin-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-radius: 24px;
+      }
+
+      .admin-login-card {
+        max-width: 560px;
+        padding: 28px;
+      }
+
+      .admin-form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .admin-form-group label {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .admin-input,
+      .admin-select {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        outline: none;
+      }
+
+      .admin-input::placeholder {
+        color: rgba(255,255,255,0.45);
+      }
+
+      .admin-btn {
+        border: none;
+        border-radius: 14px;
+        padding: 12px 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform .18s ease, opacity .18s ease;
+      }
+
+      .admin-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .admin-btn-primary {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: #fff;
+      }
+
+      .admin-btn-secondary {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .admin-message {
+        display: none;
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
+
+      .admin-message[data-type="success"] {
+        display: block;
+        background: rgba(34, 197, 94, 0.18);
+        color: #d1fae5;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+      }
+
+      .admin-message[data-type="error"] {
+        display: block;
+        background: rgba(239, 68, 68, 0.16);
+        color: #fee2e2;
+        border: 1px solid rgba(239, 68, 68, 0.28);
+      }
+
+      .admin-message[data-type="info"] {
+        display: block;
+        background: rgba(59, 130, 246, 0.14);
+        color: #dbeafe;
+        border: 1px solid rgba(59, 130, 246, 0.24);
+      }
+
+      .admin-panel {
+        display: none;
+      }
+
+      .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .admin-stat {
+        padding: 20px;
+      }
+
+      .admin-stat-label {
+        color: rgba(255,255,255,0.68);
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .admin-stat-value {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 800;
+      }
+      .admin-toolbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 22px;
+        margin-bottom: 16px;
+      }
+
+      .admin-toolbar-left h2 {
+        color: #fff;
+        margin: 0;
+      }
+
+      .admin-toolbar-left p {
+        color: rgba(255,255,255,0.72);
+        margin: 6px 0 0;
+      }
+
+      .admin-toolbar-right {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .admin-table-card {
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      .admin-table-wrap {
+        overflow-x: auto;
+      }
+
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1100px;
+      }
+
+      .admin-table th,
+      .admin-table td {
+        padding: 14px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        vertical-align: top;
+        text-align: left;
+      }
+
+      .admin-table th {
+        color: rgba(255,255,255,0.72);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .admin-table td {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .admin-user-name {
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .admin-user-meta {
+        color: rgba(255,255,255,0.65);
+        font-size: 13px;
+        margin-bottom: 2px;
+      }
+
+      .admin-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .admin-badge--success {
+        background: rgba(34, 197, 94, 0.16);
+        color: #bbf7d0;
+        border: 1px solid rgba(34, 197, 94, 0.28);
+      }
+
+      .admin-badge--danger {
+        background: rgba(239, 68, 68, 0.16);
+        color: #fecaca;
+        border: 1px solid rgba(239, 68, 68, 0.28);
+      }
+
+      .admin-badge--warning {
+        background: rgba(245, 158, 11, 0.16);
+        color: #fde68a;
+        border: 1px solid rgba(245, 158, 11, 0.28);
+      }
+
+      .admin-badge--muted {
+        background: rgba(148, 163, 184, 0.14);
+        color: #cbd5e1;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .admin-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .admin-action-btn {
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        border-radius: 10px;
+        padding: 8px 10px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        color: #a5b4fc;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .admin-hidden {
+        display: none !important;
+      }
+
+      @media (max-width: 960px) {
+        .admin-stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .admin-hero {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .admin-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .admin-page {
+          padding: 20px 12px 40px;
+        }
+
+        .admin-login-card,
+        .admin-toolbar,
+        .admin-table-card {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body class="admin-page">
+    <main class="admin-wrap">
+      <section class="admin-hero">
+        <div>
+          <span class="eyebrow">LevelUp Admin</span>
+          <h1>Users, approvals, and access control</h1>
+          <p class="admin-subtitle">
+            Premium admin panel for managing registrations, payments, approvals, and access codes.
+          </p>
+        </div>
+        <div class="admin-top-actions">
+          <a href="/" class="admin-btn admin-btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center;">Back to site</a>
+          <button id="admin-logout-btn" class="admin-btn admin-btn-secondary">Logout</button>
+        </div>
+      </section>
+
+      <section id="admin-login-section" class="admin-card admin-login-card">
+        <span class="eyebrow">Secure Access</span>
+        <h2 style="margin:10px 0 8px; color:#fff;">Enter admin credentials</h2>
+        <p style="margin:0 0 18px; color:rgba(255,255,255,0.72);">
+          Use your admin username and password. Optional TOTP works if enabled in environment.
+        </p>
+
+        <form id="admin-login-form">
+          <div class="admin-form-group">
+            <label for="admin-username">Username</label>
+            <input id="admin-username" class="admin-input" type="text" placeholder="admin" autocomplete="username" />
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-password">Password</label>
+            <input id="admin-password" class="admin-input" type="password" placeholder="Enter admin password" autocomplete="current-password" />
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-totp">TOTP code (optional)</label>
+            <input id="admin-totp" class="admin-input" type="text" inputmode="numeric" placeholder="123456" autocomplete="one-time-code" />
+          </div>
+          <div class="admin-form-group">
+            <label for="admin-key">Legacy admin key (optional)</label>
+            <input id="admin-key" class="admin-input" type="password" placeholder="Only if you still use ADMIN_KEY" autocomplete="current-password" />
+          </div>
+
+          <button type="submit" class="admin-btn admin-btn-primary">Open Admin Panel</button>
+        </form>
+
+        <div id="admin-login-message" class="admin-message"></div>
+      </section>
+
+      <section id="admin-panel-section" class="admin-panel">
+        <div class="admin-stats">
+          <article class="admin-card admin-stat">
+            <div class="admin-stat-label">Visible Users</div>
+            <div id="admin-users-count" class="admin-stat-value">0</div>
+          </article>
+          <article class="admin-card admin-stat">
+            <div class="admin-stat-label">Paid</div>
+            <div id="admin-paid-count" class="admin-stat-value">0</div>
+          </article>
+          <article class="admin-card admin-stat">
+            <div class="admin-stat-label">Unlocked</div>
+            <div id="admin-unlocked-count" class="admin-stat-value">0</div>
+          </article>
+          <article class="admin-card admin-stat">
+            <div class="admin-stat-label">Lesson 1 Done</div>
+            <div id="admin-lesson1-count" class="admin-stat-value">0</div>
+          </article>
+        </div>
+
+        <section class="admin-card admin-toolbar">
+          <div class="admin-toolbar-left">
+            <span class="eyebrow">Registered learners</span>
+            <h2>User management</h2>
+            <p>Search, filter, approve access, regenerate codes, and manage user states.</p>
+          </div>
+
+          <div class="admin-toolbar-right">
+            <input
+              id="admin-search-input"
+              class="admin-input"
+              type="text"
+              placeholder="Search by name, email, phone, ID"
+              style="min-width:260px;"
+            />
+
+            <select id="admin-filter-select" class="admin-select" style="min-width:180px;">
+              <option value="all">All users</option>
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+              <option value="approved">Approved</option>
+              <option value="locked">Locked</option>
+              <option value="lesson1">Lesson 1 done</option>
+            </select>
+
+            <button id="admin-refresh-btn" class="admin-btn admin-btn-secondary">Refresh</button>
+            <button id="admin-export-btn" class="admin-btn admin-btn-secondary">Export CSV</button>
+          </div>
+        </section>
+
+        <div id="admin-global-message" class="admin-message"></div>
+
+        
+
+        <section class="admin-card admin-table-card" style="margin-bottom:24px;">
+          <div style="padding:0 0 16px;">
+            <span class="eyebrow">Payments</span>
+            <h2 style="color:#fff; margin:10px 0 0;">Pending payment reviews</h2>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Created</th><th>User ID</th><th>Transaction</th><th>Amount</th><th>Status</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-payments-tbody">
+                <tr><td colspan="6">No payments yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="admin-card admin-table-card">
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>User</th>
+                  <th>Payment</th>
+                  <th>Access</th>
+                  <th>Lesson 1</th>
+                  <th>Access Code</th>
+                  <th>Progress</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-users-tbody">
+                <tr>
+                  <td colspan="9" style="text-align:center;">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>
